@@ -1,0 +1,14 @@
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\FinancialChat.Infra.Data.deps.json
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\FinancialChat.Infra.Data.dll
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\ref\FinancialChat.Infra.Data.dll
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\FinancialChat.Infra.Data.pdb
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\FinancialChat.Domain.dll
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\bin\Debug\net5.0\FinancialChat.Domain.pdb
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.AssemblyInfo.cs
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.dll
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\ref\FinancialChat.Infra.Data.dll
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.pdb

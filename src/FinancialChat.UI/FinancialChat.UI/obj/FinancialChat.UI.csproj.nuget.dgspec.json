@@ -1,0 +1,256 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\FinancialChat.UI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj",
+        "projectName": "FinancialChat.Domain",
+        "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj",
+        "packagesPath": "C:\\Users\\alexandre.novaes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alexandre.novaes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj",
+        "projectName": "FinancialChat.Infra.Data",
+        "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\alexandre.novaes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alexandre.novaes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj": {
+                "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\FinancialChat.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\FinancialChat.UI.csproj",
+        "projectName": "FinancialChat.UI",
+        "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\FinancialChat.UI.csproj",
+        "packagesPath": "C:\\Users\\alexandre.novaes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\alexandre.novaes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj": {
+                "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj"
+              },
+              "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj": {
+                "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.8, 5.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
