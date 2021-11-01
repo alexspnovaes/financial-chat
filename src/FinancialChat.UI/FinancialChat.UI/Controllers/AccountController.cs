@@ -54,7 +54,7 @@ namespace FinancialChat.UI.Controllers
                 // Copia os dados do RegisterViewModel para o IdentityUser
                 var user = new User
                 {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email
                 };
                 // Armazena os dados do usuário na tabela AspNetUsers

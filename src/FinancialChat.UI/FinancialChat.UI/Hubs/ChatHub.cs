@@ -1,19 +1,70 @@
-﻿using FinancialChat.Domain.Entities;
-using FinancialChat.Domain.Interfaces;
+﻿using FinancialChat.Domain.Interfaces.Services;
+using FinancialChat.Domain.Models.Inputs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FinancialChat.UI.Hubs
 {
     public class ChatHub : Hub
     {
-        public async Task SendMessage(string user, string message)
+        private readonly IChatService _chatService;
+        private readonly IUserService _userService;
+
+        public ChatHub(IChatService chatService, IUserService userService)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            _chatService = chatService ?? throw new ArgumentNullException(nameof(chatService));
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+        }
+
+        public override async Task OnConnectedAsync()
+        {
+
+            var httpContext = Context.GetHttpContext();
+            await httpContext.Session.LoadAsync();
+            var userStr = httpContext.Session.GetString("user");
+            if (!string.IsNullOrEmpty(userStr))
+            {
+                var user = System.Text.Json.JsonSerializer.Deserialize<UserInput>(userStr);
+
+                await _userService.OnStartSession(user);
+
+            }
+            else
+            {
+                await OnDisconnectedAsync(new Exception("Not Authorized"));
+            }
+
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception exception)
+        {
+            var httpContext = Context.GetHttpContext();
+            await httpContext.Session.LoadAsync();
+            var userStr = httpContext.Session.GetString("user");
+            if (!string.IsNullOrEmpty(userStr))
+            {
+                var user = System.Text.Json.JsonSerializer.Deserialize<UserInput>(userStr);
+
+                await _userService.OnStopSession(user);
+
+            }
+
+            await base.OnDisconnectedAsync(exception);
+        }
+
+        public void SendMessage(string message)
+        {
+            var m = message;
+            //var message = JsonConvert.DeserializeObject<MessageInput>(messageString);
+
+            //var user = JsonConvert.DeserializeObject<UserInput>(userString);
+
+            //await _chatService.SendMessage(user, message);
         }
     }
 }

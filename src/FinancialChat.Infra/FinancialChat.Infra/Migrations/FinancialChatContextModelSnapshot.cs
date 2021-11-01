@@ -19,17 +19,34 @@ namespace FinancialChat.Infra.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FinancialChat.Domain.Entities.ChatRoom", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChatRoom", "dbo");
+                });
+
             modelBuilder.Entity("FinancialChat.Domain.Entities.Message", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ChatRoomId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("Destination")
-                        .HasColumnType("int");
+                    b.Property<string>("DestinationId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SenderId")
                         .HasColumnType("nvarchar(450)");
@@ -40,6 +57,10 @@ namespace FinancialChat.Infra.Data.Migrations
                         .HasColumnType("varchar(1000)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ChatRoomId");
+
+                    b.HasIndex("DestinationId");
 
                     b.HasIndex("SenderId");
 
@@ -246,9 +267,21 @@ namespace FinancialChat.Infra.Data.Migrations
 
             modelBuilder.Entity("FinancialChat.Domain.Entities.Message", b =>
                 {
+                    b.HasOne("FinancialChat.Domain.Entities.ChatRoom", "ChatRoom")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatRoomId");
+
+                    b.HasOne("FinancialChat.Domain.Entities.User", "Destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationId");
+
                     b.HasOne("FinancialChat.Domain.Entities.User", "Sender")
                         .WithMany("Messages")
                         .HasForeignKey("SenderId");
+
+                    b.Navigation("ChatRoom");
+
+                    b.Navigation("Destination");
 
                     b.Navigation("Sender");
                 });
@@ -302,6 +335,11 @@ namespace FinancialChat.Infra.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FinancialChat.Domain.Entities.ChatRoom", b =>
+                {
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("FinancialChat.Domain.Entities.User", b =>

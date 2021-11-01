@@ -12,3 +12,4 @@ C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\Financ
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.dll
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\ref\FinancialChat.Infra.Data.dll
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.pdb
+C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.Infra\FinancialChat.Infra\obj\Debug\net5.0\FinancialChat.Infra.Data.csproj.CopyComplete

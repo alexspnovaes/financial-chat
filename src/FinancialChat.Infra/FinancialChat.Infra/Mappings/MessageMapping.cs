@@ -20,6 +20,7 @@ namespace FinancialChat.Infra.Data.Mappings
             builder.Property(x => x.Text).HasColumnType("varchar").HasMaxLength(1000).IsRequired();
             builder.Property(x => x.Created).HasColumnType("datetime").IsRequired();
             builder.HasOne(x => x.Sender).WithMany(c => c.Messages);
+            builder.HasOne(x => x.ChatRoom).WithMany(c => c.Messages);
         }
     }
 }
