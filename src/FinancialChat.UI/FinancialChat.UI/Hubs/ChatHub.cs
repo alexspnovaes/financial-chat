@@ -13,11 +13,13 @@ namespace FinancialChat.UI.Hubs
     {
         private readonly IChatService _chatService;
         private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ChatHub(IChatService chatService, IUserService userService)
+        public ChatHub(IChatService chatService, IUserService userService, IHttpContextAccessor httpContextAccessor)
         {
             _chatService = chatService ?? throw new ArgumentNullException(nameof(chatService));
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public override async Task OnConnectedAsync()
@@ -57,14 +59,19 @@ namespace FinancialChat.UI.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public void SendMessage(string message)
+        public async Task SendMessage(string message, string roomId)
         {
-            var m = message;
-            //var message = JsonConvert.DeserializeObject<MessageInput>(messageString);
+            var user = _httpContextAccessor.HttpContext?.User.Identity.Name;
 
-            //var user = JsonConvert.DeserializeObject<UserInput>(userString);
+            var msg = new MessageInput
+            {
+                Date = (int)DateTimeOffset.Now.ToUnixTimeSeconds(),
+                From = user,
+                Message = message,
+                RoomId = roomId
+            };
 
-            //await _chatService.SendMessage(user, message);
+            await _chatService.SendMessage(msg);
         }
     }
 }

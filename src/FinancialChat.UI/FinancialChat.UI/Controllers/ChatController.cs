@@ -27,6 +27,7 @@ namespace FinancialChat.UI.Controllers
         public async Task<IActionResult> Messages(string id)
         {
             var messages = await _chatService.GetMessages(id, 0, 50);
+            ViewBag.RoomId = id;
             return View(messages);
         }
 

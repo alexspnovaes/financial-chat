@@ -1,10 +1,11 @@
 ﻿"use strict";
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+var chatroomId = document.getElementById("RoomId").value;
 
 document.getElementById("sendButton").disabled = true;
 
-connection.on("ReceiveMessage", function (user, message) {
+connection.on(`message${chatroomId}`, function (user, message) {
     var currentdate = new Date();
     var datetime = 
         (currentdate.getMonth() + 1) + "/"
@@ -27,7 +28,7 @@ connection.start().then(function () {
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", message).catch(function (err) {
+    connection.invoke("SendMessage", message, chatroomId).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();

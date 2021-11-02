@@ -62,18 +62,12 @@ namespace FinancialChat.Domain.Services
 
        
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(MessageInput message)
         {
-            var m = message;
-            //await _database.SetAddAsync("online_users", message.From);
-            //var roomKey = $"room:{message.RoomId}";
-            //await _database.SortedSetAddAsync(roomKey, JsonConvert.SerializeObject(message), (double)message.Date);
-            //await _messageService.PublishMessage("message", message);
-        }
-
-        public Task SendMessage(UserInput user, MessageInput message)
-        {
-            throw new NotImplementedException();
+            await _database.SetAddAsync("online_users", message.From);
+            var roomKey = $"room:{message.RoomId}";
+            await _database.SortedSetAddAsync(roomKey, JsonConvert.SerializeObject(message), message.Date);
+            await _messageService.PublishMessage($"message{message.RoomId}", message);
         }
     }
 }
