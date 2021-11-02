@@ -5,19 +5,26 @@ var chatroomId = document.getElementById("RoomId").value;
 
 document.getElementById("sendButton").disabled = true;
 
-connection.on(`message${chatroomId}`, function (user, message) {
-    var currentdate = new Date();
-    var datetime = 
-        (currentdate.getMonth() + 1) + "/"
-        + currentdate.getDate() + "/"
-        + currentdate.getFullYear() + "  "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
+connection.on(`message${chatroomId}`, function (message) {
+    var newRow = document.createElement("tr");
+    var newCell = document.createElement("td");
+    message = JSON.parse(message);
 
-    var li = document.createElement("li");
-    document.getElementById("messagesList").appendChild(li);
-    li.textContent = `${datetime} - ${user} says ${message}`;
+    var user = message.from;
+    var msg = message.message;
+    var date = message.date;
+
+    newCell.innerHTML = `${date} - ${user} says ${msg}`;
+
+    newRow.append(newCell);
+    document.getElementById("rows").appendChild(newRow);
+    document.getElementById("messageInput").value = ''
+
+    var table = document.getElementById("messagesTable");
+    var tbodyCount = table.tBodies[0].rows.length;
+    if (tbodyCount > 10) {
+        table.deleteRow(1);
+    }
 });
 
 connection.start().then(function () {

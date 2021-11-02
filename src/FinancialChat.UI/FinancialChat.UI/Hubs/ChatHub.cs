@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
 using System;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FinancialChat.UI.Hubs

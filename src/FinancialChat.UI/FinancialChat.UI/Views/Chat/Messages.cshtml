@@ -8,24 +8,35 @@
 <h1>Messages</h1>
 <div class="container">
     <div class="row">
-        <div class="col-2">Message</div>
-        <div class="col-4"><input type="text" id="messageInput" /></div>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">
-            <input type="button" id="sendButton" value="Send Message" />
+        <div class="col-1">Message</div>
+        <input class="col-8" type="text" id="messageInput" />
+        <div class="col-2">
+            <input type="button" id="sendButton" value="Send" />
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <ul id="messagesList"></ul>
+        <table class="table" id="messagesTable">
+            <thead>
+                <tr>
+                    <th>
+                        Messages
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="rows">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date) -  @Html.DisplayFor(modelItem => item.From) says  @Html.DisplayFor(modelItem => item.Message)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

@@ -172,6 +172,5 @@ C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\Financial
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Chat\__Index.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Chat\Messages.cshtml.g.cs
