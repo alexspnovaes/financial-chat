@@ -35,7 +35,7 @@ namespace FinancialChat.UI.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(
-                    model.Email, model.Password, model.RememberMe, false);
+                    model.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("index", "home");
@@ -54,7 +54,7 @@ namespace FinancialChat.UI.Controllers
                 // Copia os dados do RegisterViewModel para o IdentityUser
                 var user = new User
                 {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email
                 };
                 // Armazena os dados do usuário na tabela AspNetUsers

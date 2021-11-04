@@ -15,7 +15,6 @@ namespace FinancialChat.Infra.Data.Mappings
         {
             builder.Property(x => x.Email).HasColumnType("varchar").HasMaxLength(255).IsRequired();
             builder.Property(x => x.UserName).HasColumnType("varchar").HasMaxLength(50).IsRequired();
-            builder.HasMany(x => x.Messages).WithOne(e => e.Sender);
         }
     }
 }

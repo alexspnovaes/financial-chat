@@ -19,31 +19,30 @@ namespace FinancialChat.Infra.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FinancialChat.Domain.Entities.Message", b =>
+            modelBuilder.Entity("FinancialChat.Domain.Entities.ChatRoom", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Destination")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SenderId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SenderId");
+                    b.ToTable("ChatRoom", "dbo");
 
-                    b.ToTable("Message", "dbo");
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("24e42333-b862-49ff-bb48-980ad6a66b48"),
+                            Name = "Financial Chat Room 1"
+                        },
+                        new
+                        {
+                            Id = new Guid("2f8c84ce-f8ce-405e-ab0d-c068d400664c"),
+                            Name = "Financial Chat Room 2"
+                        });
                 });
 
             modelBuilder.Entity("FinancialChat.Domain.Entities.User", b =>
@@ -244,15 +243,6 @@ namespace FinancialChat.Infra.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("FinancialChat.Domain.Entities.Message", b =>
-                {
-                    b.HasOne("FinancialChat.Domain.Entities.User", "Sender")
-                        .WithMany("Messages")
-                        .HasForeignKey("SenderId");
-
-                    b.Navigation("Sender");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -302,11 +292,6 @@ namespace FinancialChat.Infra.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FinancialChat.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }
