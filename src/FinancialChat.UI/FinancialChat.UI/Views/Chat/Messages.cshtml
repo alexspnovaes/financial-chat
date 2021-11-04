@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FinancialChat.Domain.Models.MessageModel>
+﻿@model FinancialChat.UI.ViewModels.ChatRoomViewModel
     @{
     ViewData["Title"] = "Index";
 }
@@ -15,28 +15,58 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-12">
-        <table class="table" id="messagesTable">
-            <thead>
-                <tr>
-                    <th>
-                        Messages
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="rows">
-                @foreach (var item in Model)
-                {
+<div class="col-12">
+    <div class="row">
+        <div class="col-8">
+            <table class="table" id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Messages
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="rows">
+                    @foreach (var item in Model.Messages)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateTime) -  @Html.DisplayFor(modelItem => item.From) says  @Html.DisplayFor(modelItem => item.Message)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <table class="table" id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Users
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Date) -  @Html.DisplayFor(modelItem => item.From) says  @Html.DisplayFor(modelItem => item.Message)
+                            <div id="users">
+                                <input type="radio" id="all" name="usersonline" value="all" checked>
+                                <label for="all">All</label><br />
+                                @foreach (var user in Model.Users)
+                                {
+                                    @Html.RadioButton("usersonline",user,false,new { id = user})
+                                    <label for=@user>@user</label>
+                                    <br />
+                                }
+                            </div>
                         </td>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

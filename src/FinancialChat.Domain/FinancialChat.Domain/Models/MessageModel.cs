@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,5 +13,15 @@ namespace FinancialChat.Domain.Models
         public int Date { get; set; }
         public string Message { get; set; }
         public string RoomId { get; set; }
+
+        public string DateTime
+        {
+            get
+            {
+                var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dateTime = dateTime.AddSeconds(Date).ToLocalTime();
+                return dateTime.ToString("M/d/yyyy, h:ms:ss tt", CultureInfo.InvariantCulture);
+            }
+        }
     }
 }

@@ -1,9 +1,30 @@
 ﻿"use strict";
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 var chatroomId = document.getElementById("RoomId").value;
+var connection = new signalR.HubConnectionBuilder().withUrl(`/chatHub?chatroomId=${chatroomId}`).build();
 
 document.getElementById("sendButton").disabled = true;
+
+connection.on(`chatroom${chatroomId}`, function (user) {
+    var radiobox = document.createElement('input');
+    radiobox.type = 'radio';
+    radiobox.id = user;
+    radiobox.name = "usersonline";
+    radiobox.value = user;
+
+    var label = document.createElement('label')
+    label.htmlFor = user;
+
+    var description = document.createTextNode(user);
+    label.appendChild(description);
+
+    var newline = document.createElement('br');
+    var users = document.getElementById("users");
+    users.appendChild(radiobox);
+    users.appendChild(label);
+    users.appendChild(newline);
+
+});
 
 connection.on(`message${chatroomId}`, function (message) {
     var newRow = document.createElement("tr");
@@ -13,8 +34,13 @@ connection.on(`message${chatroomId}`, function (message) {
     var user = message.from;
     var msg = message.message;
     var date = message.date;
+    var to = message.to;
 
-    newCell.innerHTML = `${date} - ${user} says ${msg}`;
+    var milliseconds = date * 1000;
+    var dateObject = new Date(milliseconds);
+    var dateFormat = dateObject.toLocaleString();
+
+    newCell.innerHTML = `${dateFormat} - <strong>${user}</strong> says to <strong>${to}</strong> -  ${msg}`;
 
     newRow.append(newCell);
     document.getElementById("rows").appendChild(newRow);
@@ -22,7 +48,7 @@ connection.on(`message${chatroomId}`, function (message) {
 
     var table = document.getElementById("messagesTable");
     var tbodyCount = table.tBodies[0].rows.length;
-    if (tbodyCount > 10) {
+    if (tbodyCount > 50) {
         table.deleteRow(1);
     }
 });
@@ -35,7 +61,17 @@ connection.start().then(function () {
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", message, chatroomId).catch(function (err) {
+
+    var ele = document.getElementsByName('usersonline');
+
+    for (var i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            var userTo = ele[i].value;
+            break;
+        }
+    }
+
+    connection.invoke("SendMessage", message, chatroomId,userTo, null).catch(function (err) {
         return console.error(err.toString());
     });
     event.preventDefault();

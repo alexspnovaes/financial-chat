@@ -1,12 +1,11 @@
-﻿using FinancialChat.Domain.Interfaces;
+﻿using FinancialChat.Domain.Hubs;
+using FinancialChat.Domain.Interfaces;
+using FinancialChat.Domain.Interfaces.ExternalServices;
 using FinancialChat.Domain.Interfaces.Services;
 using FinancialChat.Domain.Services;
 using FinancialChat.Infra.Data.Repositories;
+using FinancialChat.Infra.ExternalServices;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FinancialChat.UI.Configuration
 {
@@ -18,6 +17,9 @@ namespace FinancialChat.UI.Configuration
             services.AddScoped<IChatService, ChatService>();
             services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<INotifyStockService, NotifyStockService>();
+            services.AddScoped<IStockApiExternalService, StockApiExternalService>();
+            services.AddScoped<IChatHub, ChatHub>();
             #endregion
 
             #region repositories

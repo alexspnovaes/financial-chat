@@ -1,6 +1,7 @@
 ﻿using FinancialChat.Domain.Interfaces.Services;
 using FinancialChat.Domain.Models;
 using FinancialChat.Domain.Models.Inputs;
+using Microsoft.AspNetCore.Http;
 using StackExchange.Redis;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,57 +13,50 @@ namespace FinancialChat.Domain.Services
         protected readonly IDatabase _database;
         protected readonly IConnectionMultiplexer _redis;
         protected readonly IMessageService _messageService;
-        public UserService(IConnectionMultiplexer redis, IMessageService messageService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public UserService(IConnectionMultiplexer redis, IMessageService messageService, IHttpContextAccessor httpContextAccessor)
         {
-            _redis = redis; 
+            _redis = redis;
             _database = redis.GetDatabase();
             _messageService = messageService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<IDictionary<string, UserModel>> Get(int[] ids)
+        public async Task<List<string>> GetOnlineUsersButMeAsync(string roomId)
         {
-            var users = new Dictionary<string, UserModel>();
-            foreach (var id in ids)
+            var userName = _httpContextAccessor.HttpContext?.User.Identity.Name;
+
+            var key = $"room:{roomId}:online_users";
+            var roomExists = await _database.KeyExistsAsync(key);
+            var users = new List<string>();
+
+            if (!roomExists)
             {
-                users.Add(id.ToString(), new UserModel()
-                {
-                    Id = id,
-                    Username = await _database.HashGetAsync($"user:{id}", "username"),
-                    IsOnline = await _database.SetContainsAsync("online_users", id.ToString())
-                });
+                return users;
             }
+            var values = await _database.SetMembersAsync(key);
+
+            foreach (var valueRedisVal in values)
+            {
+                var value = valueRedisVal.ToString();
+                users.Add(value);
+            }
+
+            users.Remove(userName);
             return users;
         }
 
-        public async Task<IDictionary<string, UserModel>> GetOnline()
+        public async Task OnStartSession(UserInput user, string roomId)
         {
-            var onlineIds = await _database.SetMembersAsync("online_users");
-            var users = new Dictionary<string, UserModel>();
-            foreach (var onlineIdRedisValue in onlineIds)
-            {
-                var onlineId = onlineIdRedisValue.ToString();
-                var user = await _database.HashGetAsync($"user:{onlineId}", "username");
-                users.Add(onlineId, new UserModel()
-                {
-                    Id = int.Parse(onlineId),
-                    Username = user.ToString(),
-                    IsOnline = true
-                });
-            }
-
-            return users;
-        }
-
-        public async Task OnStartSession(UserInput user)
-        {
-            await _database.SetAddAsync("online_users", user.Id);
+            await _database.SetAddAsync($"room:{roomId}:online_users", user.Username);
             user.IsOnline = true;
             await _messageService.PublishMessage("user.connected", user);
         }
 
-        public async Task OnStopSession(UserInput user)
+        public async Task OnStopSession(UserInput user, string roomId)
         {
-            await _database.SetRemoveAsync("online_users", user.Id);
+            await _database.SetRemoveAsync($"room:{roomId}:online_users", user.Username);
             user.IsOnline = false;
             await _messageService.PublishMessage("user.disconnected", user);
         }

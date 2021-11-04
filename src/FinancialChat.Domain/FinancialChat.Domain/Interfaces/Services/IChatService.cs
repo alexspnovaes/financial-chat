@@ -11,8 +11,8 @@ namespace FinancialChat.Domain.Interfaces.Services
 {
     public interface IChatService
     {
-        Task<List<ChatRoomModel>> GetRooms();
-        Task<List<MessageModel>> GetMessages(string roomId = "0", int offset = 0, int size = 50);
+        Task<List<ChatRoomModel>> GetRoomsAsync();
+        Task<List<MessageModel>> GetMessagesAsync(string roomId = "0", int offset = 0, int size = 50);
         Task SendMessage(MessageInput message);
     }
 }

@@ -29,39 +29,37 @@ namespace FinancialChat.Domain.Services
             _mapper = mapper;
         }
 
-        public async Task<List<ChatRoomModel>> GetRooms() =>  _mapper.Map<List<ChatRoomModel>>(await _chatRoomRepository.GetAllAsync());
+        public async Task<List<ChatRoomModel>> GetRoomsAsync() => _mapper.Map<List<ChatRoomModel>>(await _chatRoomRepository.GetAllAsync());
 
-        public async Task<List<MessageModel>> GetMessages(string roomId, int offset = 0, int size = 50)
+        public async Task<List<MessageModel>> GetMessagesAsync(string roomId, int offset = 0, int size = 50)
         {
             var key = $"room:{roomId}";
             var roomExists = await _database.KeyExistsAsync(key);
             var messages = new List<MessageModel>();
 
             if (!roomExists)
-            {
                 return messages;
-            }
-            else
-            {
-                var values = await _database.SortedSetRangeByRankAsync(key, offset, offset + size, Order.Descending);
+            var values = await _database.SortedSetRangeByRankAsync(key, offset, offset + size, Order.Descending);
 
-                foreach (var valueRedisVal in values)
+            foreach (var valueRedisVal in values)
+            {
+                var value = valueRedisVal.ToString();
+                try
                 {
-                    var value = valueRedisVal.ToString();
-                    try
-                    {
-                        messages.Add(JsonConvert.DeserializeObject<MessageModel>(value));
-                    }
-                    catch (System.Text.Json.JsonException)
-                    {
-                        //TODO: tratamento de erro
-                    }
+                    messages.Add(JsonConvert.DeserializeObject<MessageModel>(value));
                 }
-                return messages.OrderBy(w => w.Date).ToList();
+                catch (System.Text.Json.JsonException)
+                {
+                    //TODO: tratamento de erro
+                }
             }
+            return messages.OrderBy(w => w.Date).ToList();
         }
 
+
        
+
+
 
         public async Task SendMessage(MessageInput message)
         {

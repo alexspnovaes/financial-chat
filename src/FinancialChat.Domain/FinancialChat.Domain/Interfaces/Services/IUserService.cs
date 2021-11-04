@@ -10,10 +10,8 @@ namespace FinancialChat.Domain.Interfaces.Services
 {
     public interface IUserService
     {
-        Task<IDictionary<string, UserModel>> Get(int[] ids);
-        Task<IDictionary<string, UserModel>> GetOnline();
-
-        Task OnStartSession(UserInput user);
-        Task OnStopSession(UserInput user);
+        Task<List<string>> GetOnlineUsersButMeAsync(string roomId);
+        Task OnStartSession(UserInput user, string roomId);
+        Task OnStopSession(UserInput user, string roomId);
     }
 }

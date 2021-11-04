@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialChat.Infra.ExternalServices", "src\FinancialChat.Infra.ExternalServices\FinancialChat.Infra.ExternalServices\FinancialChat.Infra.ExternalServices.csproj", "{A50A2A56-094D-4D54-8DC8-43798E900E5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{1A124624-B095-483A-BA93-95620F0D2C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A124624-B095-483A-BA93-95620F0D2C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A124624-B095-483A-BA93-95620F0D2C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{FFD175DA-2B0B-4E03-B54F-E8DD01B7B43C} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
 		{E6F6B58B-A2D0-4B89-BBC5-FB9C587F170F} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
 		{1A124624-B095-483A-BA93-95620F0D2C74} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
+		{A50A2A56-094D-4D54-8DC8-43798E900E5B} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBDD620B-5B73-4587-A745-BBEC04B3D893}

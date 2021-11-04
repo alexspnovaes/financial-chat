@@ -1,9 +1,10 @@
 using FinancialChat.Domain.Entities;
+using FinancialChat.Domain.Hubs;
 using FinancialChat.Domain.Models;
 using FinancialChat.Infra.Context;
 using FinancialChat.Infra.Data.Context;
 using FinancialChat.UI.Configuration;
-using FinancialChat.UI.Hubs;
+using FinancialChat.UI.Consumers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,9 @@ namespace FinancialChat.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RabbitMqConfiguration>(Configuration.GetSection("RabbitMqConfig"));
+            services.AddHostedService<ProcessStockMessageConsumer>();
+
             ConnectionMultiplexer redis = null;
             string redisConnectionUrl = null;
             {

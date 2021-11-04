@@ -1511,6 +1511,19 @@
           "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {}
         }
       },
+      "RabbitMQ.Client/6.2.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4",
+          "System.Threading.Channels": "4.7.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        }
+      },
       "runtime.native.System/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2631,13 +2644,13 @@
           "lib/netstandard1.3/System.Threading.dll": {}
         }
       },
-      "System.Threading.Channels/4.5.0": {
+      "System.Threading.Channels/4.7.1": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp2.1/System.Threading.Channels.dll": {}
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Threading.Channels.dll": {}
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         }
       },
       "System.Threading.Tasks/4.3.0": {
@@ -2810,6 +2823,20 @@
         },
         "runtime": {
           "bin/placeholder/FinancialChat.Infra.Data.dll": {}
+        }
+      },
+      "FinancialChat.Infra.ExternalServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FinancialChat.Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FinancialChat.Infra.ExternalServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinancialChat.Infra.ExternalServices.dll": {}
         }
       }
     }
@@ -5187,6 +5214,25 @@
         "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
         "pipelines.sockets.unofficial.2.2.0.nupkg.sha512",
         "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/6.2.2": {
+      "sha512": "+tJSgE+rQXgLvOxWvOxdZ0+No1EMa86+puZuNlCb4cNryHw2PY2Xiw/y2dz/WWdeJQp74Y2UnNXPkuLiYpvn+A==",
+      "type": "package",
+      "path": "rabbitmq.client/6.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net461/RabbitMQ.Client.dll",
+        "lib/net461/RabbitMQ.Client.pdb",
+        "lib/net461/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.pdb",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.6.2.2.nupkg.sha512",
+        "rabbitmq.client.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -8681,22 +8727,25 @@
         "system.threading.nuspec"
       ]
     },
-    "System.Threading.Channels/4.5.0": {
-      "sha512": "MEH06N0rIGmRT4LOKQ2BmUO0IxfvmIY/PaouSq+DFQku72OL8cxfw8W99uGpTCFf2vx2QHLRSh374iSM3asdTA==",
+    "System.Threading.Channels/4.7.1": {
+      "sha512": "6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
       "type": "package",
-      "path": "system.threading.channels/4.5.0",
+      "path": "system.threading.channels/4.7.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/System.Threading.Channels.dll",
-        "lib/netcoreapp2.1/System.Threading.Channels.xml",
+        "lib/net461/System.Threading.Channels.dll",
+        "lib/net461/System.Threading.Channels.xml",
+        "lib/netcoreapp3.0/System.Threading.Channels.dll",
+        "lib/netcoreapp3.0/System.Threading.Channels.xml",
         "lib/netstandard1.3/System.Threading.Channels.dll",
         "lib/netstandard1.3/System.Threading.Channels.xml",
         "lib/netstandard2.0/System.Threading.Channels.dll",
         "lib/netstandard2.0/System.Threading.Channels.xml",
-        "system.threading.channels.4.5.0.nupkg.sha512",
+        "system.threading.channels.4.7.1.nupkg.sha512",
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -9090,6 +9139,11 @@
       "type": "project",
       "path": "../../FinancialChat.Infra/FinancialChat.Infra/FinancialChat.Infra.Data.csproj",
       "msbuildProject": "../../FinancialChat.Infra/FinancialChat.Infra/FinancialChat.Infra.Data.csproj"
+    },
+    "FinancialChat.Infra.ExternalServices/1.0.0": {
+      "type": "project",
+      "path": "../../FinancialChat.Infra.ExternalServices/FinancialChat.Infra.ExternalServices/FinancialChat.Infra.ExternalServices.csproj",
+      "msbuildProject": "../../FinancialChat.Infra.ExternalServices/FinancialChat.Infra.ExternalServices/FinancialChat.Infra.ExternalServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9097,6 +9151,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
       "FinancialChat.Domain >= 1.0.0",
       "FinancialChat.Infra.Data >= 1.0.0",
+      "FinancialChat.Infra.ExternalServices >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.2.0",
       "Microsoft.AspNetCore.DataProtection.StackExchangeRedis >= 5.0.11",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.11",
@@ -9108,7 +9163,8 @@
       "Microsoft.Extensions.Configuration.UserSecrets >= 5.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.11.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
-      "Newtonsoft.Json >= 13.0.1"
+      "Newtonsoft.Json >= 13.0.1",
+      "RabbitMQ.Client >= 6.2.2"
     ]
   },
   "packageFolders": {
@@ -9140,6 +9196,9 @@
           "projectReferences": {
             "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj": {
               "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Domain\\FinancialChat.Domain\\FinancialChat.Domain.csproj"
+            },
+            "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra.ExternalServices\\FinancialChat.Infra.ExternalServices\\FinancialChat.Infra.ExternalServices.csproj": {
+              "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra.ExternalServices\\FinancialChat.Infra.ExternalServices\\FinancialChat.Infra.ExternalServices.csproj"
             },
             "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj": {
               "projectPath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.Infra\\FinancialChat.Infra\\FinancialChat.Infra.Data.csproj"
@@ -9212,6 +9271,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[6.2.2, )"
           }
         },
         "imports": [
