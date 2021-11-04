@@ -11,3 +11,5 @@ To Run the project:
 - Redis: https://hub.docker.com/_/redis
 - RabbitMQ: https://hub.docker.com/_/rabbitmq
 - QuoteAPI: https://github.com/alexspnovaes/quoteAPI
+
+There is a seed data to populate the chatrooms
