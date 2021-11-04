@@ -35,7 +35,7 @@ namespace FinancialChat.UI.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(
-                    model.Email, model.Password, model.RememberMe, false);
+                    model.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("index", "home");

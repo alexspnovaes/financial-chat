@@ -2,7 +2,6 @@ using FinancialChat.Domain.Entities;
 using FinancialChat.Domain.Hubs;
 using FinancialChat.Domain.Models;
 using FinancialChat.Infra.Context;
-using FinancialChat.Infra.Data.Context;
 using FinancialChat.UI.Configuration;
 using FinancialChat.UI.Consumers;
 using Microsoft.AspNetCore.Builder;
@@ -128,7 +127,6 @@ namespace FinancialChat.UI
             IHubContext<ChatHub> chatHub = null;
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                DbInitializer.Seed(serviceScope).Wait();
                 chatHub = serviceScope.ServiceProvider.GetService<IHubContext<ChatHub>>();
                 redis = serviceScope.ServiceProvider.GetService<IConnectionMultiplexer>();
             }

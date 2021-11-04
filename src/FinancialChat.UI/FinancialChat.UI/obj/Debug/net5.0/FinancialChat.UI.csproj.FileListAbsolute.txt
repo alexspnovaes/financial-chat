@@ -143,11 +143,6 @@ C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\Financial
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Users\Create.cshtml.g.cs
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Users\Delete.cshtml.g.cs
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Users\Details.cshtml.g.cs
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Users\Edit.cshtml.g.cs
-C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\Users\Index.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\alexandre.novaes\projects\financial-chat\src\FinancialChat.UI\FinancialChat.UI\obj\Debug\net5.0\FinancialChat.UI.RazorTargetAssemblyInfo.cache

@@ -10,7 +10,7 @@ namespace FinancialChat.Domain.Interfaces.Services
 {
     public interface IUserService
     {
-        Task<List<string>> GetOnlineUsersButMeAsync(string roomId);
+        Task<List<string>> GetOnlineUsersAsync(string roomId, bool excludeMe = false);
         Task OnStartSession(UserInput user, string roomId);
         Task OnStopSession(UserInput user, string roomId);
     }

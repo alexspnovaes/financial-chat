@@ -6,6 +6,9 @@ var connection = new signalR.HubConnectionBuilder().withUrl(`/chatHub?chatroomId
 document.getElementById("sendButton").disabled = true;
 
 connection.on(`chatroom${chatroomId}`, function (user) {
+    var div = document.createElement('div');
+    div.id = `div-${user}`;
+
     var radiobox = document.createElement('input');
     radiobox.type = 'radio';
     radiobox.id = user;
@@ -18,11 +21,16 @@ connection.on(`chatroom${chatroomId}`, function (user) {
     var description = document.createTextNode(user);
     label.appendChild(description);
 
-    var newline = document.createElement('br');
     var users = document.getElementById("users");
-    users.appendChild(radiobox);
-    users.appendChild(label);
-    users.appendChild(newline);
+    div.appendChild(radiobox);
+    div.appendChild(label);
+
+    users.appendChild(div);
+
+});
+
+connection.on(`chatroom-exit${chatroomId}`, function (user) {
+    $(`#div-${user}`).remove();
 
 });
 

@@ -32,7 +32,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.DateTime) -  @Html.DisplayFor(modelItem => item.From) says  @Html.DisplayFor(modelItem => item.Message)
+                                @Html.DisplayFor(modelItem => item.DateTime) -  <strong>@Html.DisplayFor(modelItem => item.From)</strong> says to <strong>@Html.DisplayFor(modelItem => item.To)</strong> - @Html.DisplayFor(modelItem => item.Message)
                             </td>
                         </tr>
                     }
@@ -57,9 +57,10 @@
                                 <label for="all">All</label><br />
                                 @foreach (var user in Model.Users)
                                 {
-                                    @Html.RadioButton("usersonline",user,false,new { id = user})
-                                    <label for=@user>@user</label>
-                                    <br />
+                                    <div id=div-@user>
+                                        @Html.RadioButton("usersonline",user,false,new { id = user})
+                                        <label for=@user>@user</label>
+                                    </div>
                                 }
                             </div>
                         </td>

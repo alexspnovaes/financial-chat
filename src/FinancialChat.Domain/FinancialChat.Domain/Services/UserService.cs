@@ -23,7 +23,7 @@ namespace FinancialChat.Domain.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<List<string>> GetOnlineUsersButMeAsync(string roomId)
+        public async Task<List<string>> GetOnlineUsersAsync(string roomId, bool excludeMe = false)
         {
             var userName = _httpContextAccessor.HttpContext?.User.Identity.Name;
 
@@ -43,9 +43,11 @@ namespace FinancialChat.Domain.Services
                 users.Add(value);
             }
 
-            users.Remove(userName);
+            if (excludeMe)
+                users.Remove(userName);
             return users;
         }
+
 
         public async Task OnStartSession(UserInput user, string roomId)
         {

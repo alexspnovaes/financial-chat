@@ -29,10 +29,9 @@ namespace FinancialChat.Domain.Hubs
 
         public override async Task OnConnectedAsync()
         {
-            
             var httpContext = Context.GetHttpContext();
             await httpContext.Session.LoadAsync();
-            
+
             var roomId = httpContext.Request.Query["chatroomId"];
             var userName = _httpContextAccessor.HttpContext?.User.Identity.Name;
 
@@ -40,9 +39,12 @@ namespace FinancialChat.Domain.Hubs
                 await OnDisconnectedAsync(new Exception("Not Authorized"));
             else
             {
-                var user = new UserInput { Username = userName };
-                await _userService.OnStartSession(user, roomId);
-                await Clients.All.SendAsync($"chatroom{roomId}", user.Username);
+                if (!await VerifyUserAlreadyInRoomAsync(roomId,userName))
+                {
+                    var user = new UserInput { Username = userName };
+                    await _userService.OnStartSession(user, roomId);
+                    await Clients.All.SendAsync($"chatroom{roomId}", user.Username);
+                }
 
             }
 
@@ -53,7 +55,7 @@ namespace FinancialChat.Domain.Hubs
         {
             var httpContext = Context.GetHttpContext();
             await httpContext.Session.LoadAsync();
-            
+
             var roomId = httpContext.Request.Query["chatroomId"];
             var userName = _httpContextAccessor.HttpContext?.User.Identity.Name;
 
@@ -62,8 +64,8 @@ namespace FinancialChat.Domain.Hubs
             else
             {
                 var user = new UserInput { Username = userName };
+                await Clients.All.SendAsync($"chatroom-exit{roomId}", user.Username);
                 await _userService.OnStopSession(user, roomId);
-
             }
         }
 
@@ -105,6 +107,12 @@ namespace FinancialChat.Domain.Hubs
             }
 
             return false;
+        }
+
+        private async Task<bool> VerifyUserAlreadyInRoomAsync(string roomId, string userName)
+        {
+            var onlineUsers = await _userService.GetOnlineUsersAsync(roomId);
+            return onlineUsers.Any(w => w == userName);
         }
     }
 }
