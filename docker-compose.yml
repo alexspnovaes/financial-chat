@@ -10,7 +10,7 @@ services:
       - HOSTNAMERABBIT=rabbitmq
     restart: on-failure
     ports:
-      - "8090:80"      
+      - "5100:80"  
     depends_on:
       - "mssql"
       - "redis"     
