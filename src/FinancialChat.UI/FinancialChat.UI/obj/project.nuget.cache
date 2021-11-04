@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g6brdSXM07qduMZit3DiVm0evwlBVngDbUEavvqFg6CZGznoGL1PMndSOiTdO0ftSz4jRi/5s3skt+64o1hvmw==",
+  "dgSpecHash": "3c/pHAObihjz7IIMKAGNb2ilg+wwniJ+EaLf5HcLff7IwP2OmMIaOUgfbmr852sT+O1NYPT3SCuPWRvckjeFBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexandre.novaes\\projects\\financial-chat\\src\\FinancialChat.UI\\FinancialChat.UI\\FinancialChat.UI.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common\\1.1.0\\microsoft.aspnetcore.http.connections.common.1.1.0.nupkg.sha512",
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.11\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.11.nupkg.sha512",
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\alexandre.novaes\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.0\\microsoft.aspnetcore.razor.language.5.0.0.nupkg.sha512",

@@ -5,20 +5,26 @@ VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90F7E5B3-BCDC-44F9-9E01-86434028486B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.Domain", "src\FinancialChat.Domain\FinancialChat.Domain\FinancialChat.Domain.csproj", "{FFD175DA-2B0B-4E03-B54F-E8DD01B7B43C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.Domain", "src\FinancialChat.Domain\FinancialChat.Domain.csproj", "{FFD175DA-2B0B-4E03-B54F-E8DD01B7B43C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.Infra.Data", "src\FinancialChat.Infra\FinancialChat.Infra\FinancialChat.Infra.Data.csproj", "{E6F6B58B-A2D0-4B89-BBC5-FB9C587F170F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.Infra.Data", "src\FinancialChat.Infra\FinancialChat.Infra.Data.csproj", "{E6F6B58B-A2D0-4B89-BBC5-FB9C587F170F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hubs", "Hubs", "{2A917E97-EFDA-4F4E-BBD6-AFC691C8C72B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.UI", "src\FinancialChat.UI\FinancialChat.UI\FinancialChat.UI.csproj", "{1A124624-B095-483A-BA93-95620F0D2C74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.UI", "src\FinancialChat.UI\FinancialChat.UI.csproj", "{1A124624-B095-483A-BA93-95620F0D2C74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E87145A-0321-43C4-AF8A-EB6E00ACD00B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialChat.Infra.ExternalServices", "src\FinancialChat.Infra.ExternalServices\FinancialChat.Infra.ExternalServices\FinancialChat.Infra.ExternalServices.csproj", "{A50A2A56-094D-4D54-8DC8-43798E900E5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialChat.Infra.ExternalServices", "src\FinancialChat.Infra.ExternalServices\FinancialChat.Infra.ExternalServices.csproj", "{A50A2A56-094D-4D54-8DC8-43798E900E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{02DC4B4F-F776-4E9B-979E-EDA7E51DAD9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FInancialChat.UI.Tests", "tests\FInancialChat.UI.Tests\FInancialChat.UI.Tests.csproj", "{E7610A2A-2241-4EF5-9D31-CE215770A226}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0941AAD2-5A79-4AE4-972E-B7D2FD1C4073}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +48,14 @@ Global
 		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A50A2A56-094D-4D54-8DC8-43798E900E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7610A2A-2241-4EF5-9D31-CE215770A226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7610A2A-2241-4EF5-9D31-CE215770A226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7610A2A-2241-4EF5-9D31-CE215770A226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7610A2A-2241-4EF5-9D31-CE215770A226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0941AAD2-5A79-4AE4-972E-B7D2FD1C4073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0941AAD2-5A79-4AE4-972E-B7D2FD1C4073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0941AAD2-5A79-4AE4-972E-B7D2FD1C4073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0941AAD2-5A79-4AE4-972E-B7D2FD1C4073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +65,7 @@ Global
 		{E6F6B58B-A2D0-4B89-BBC5-FB9C587F170F} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
 		{1A124624-B095-483A-BA93-95620F0D2C74} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
 		{A50A2A56-094D-4D54-8DC8-43798E900E5B} = {90F7E5B3-BCDC-44F9-9E01-86434028486B}
+		{E7610A2A-2241-4EF5-9D31-CE215770A226} = {02DC4B4F-F776-4E9B-979E-EDA7E51DAD9C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBDD620B-5B73-4587-A745-BBEC04B3D893}
