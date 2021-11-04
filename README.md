@@ -12,4 +12,4 @@ To Run the project:
 - RabbitMQ: https://hub.docker.com/_/rabbitmq
 - QuoteAPI: https://github.com/alexspnovaes/quoteAPI
 
-There is a seed data to populate the chatrooms
+There is a seed data to populate the chatrooms and migrations to create the database structure
