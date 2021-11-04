@@ -30,8 +30,7 @@ namespace FinancialChat.UI.Consumers
 
             var factory = new ConnectionFactory
             {
-                HostName = _configuration.Host,
-                Port = 5672
+                HostName = _configuration.Host
             };
 
             _connection = factory.CreateConnection();

@@ -19,7 +19,7 @@ namespace FinancialChat.Domain.Services
         {
             //TODO: Format string value number
             var message = $"{code} quote is ${value} per share";
-            await _chatHub.SendMessage(message, roomId, userId);
+            await _chatHub.SendMessage(message, roomId,"All", userId);
         }
     }
 }

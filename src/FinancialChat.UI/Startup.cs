@@ -37,7 +37,7 @@ namespace FinancialChat.UI
             ConnectionMultiplexer redis = null;
             string redisConnectionUrl = null;
             {
-                var redisEndpointUrl = (Environment.GetEnvironmentVariable("REDIS_ENDPOINT_URL") ?? "redis:6379").Split(':');
+                var redisEndpointUrl = (Environment.GetEnvironmentVariable("REDIS_ENDPOINT_URL") ?? "localhost:6379").Split(':');
                 var redisHost = redisEndpointUrl[0];
                 var redisPort = redisEndpointUrl[1];
 
