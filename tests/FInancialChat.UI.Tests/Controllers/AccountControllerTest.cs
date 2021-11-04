@@ -70,11 +70,12 @@ namespace FInancialChat.UI.Tests.Controllers
         }
 
         [Fact]
-        public void ValidateModel_ReturnFalse_WhenInvavalidModelPosted_InvalidPassword()
+        public void ValidateModel_ReturnFalse_WhenInvavalidModelPosted_PasswordAndConfirmNotMatch()
         {
             //Arrange
             TestInitialize();
-            _input.Password = "invalidpass";
+            _input.Password = "inva";
+            _input.ConfirmPassword = "aa";
             var context = new ValidationContext(_input, null, null);
             var results = new List<ValidationResult>();
 
@@ -86,7 +87,7 @@ namespace FInancialChat.UI.Tests.Controllers
             Xunit.Assert.False(isModelStateValid);
             Xunit.Assert.True(results.Any());
             Xunit.Assert.True(results.Count == 1);
-            Xunit.Assert.Equal("Invalid Password", results.FirstOrDefault().ErrorMessage);
+            Xunit.Assert.Equal("Passwords do not match", results.FirstOrDefault().ErrorMessage);
         }
     }
 }
